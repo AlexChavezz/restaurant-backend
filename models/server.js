@@ -1,5 +1,5 @@
 const express = require('express');
-const dbConnection = require('../db/dbConnection');
+const cors = require('cors');
 
 class Server {
     constructor(){
@@ -13,9 +13,11 @@ class Server {
     }
     middlewares(){
         this.app.use(express.json());
+        this.app.use(cors());
     }
     routes(){
         this.app.use('/api/menu',require('../routes/menu.routes'));
+        this.app.use('/api/users', require('../routes/user.routes'));
     }
     listen(){
         this.app.listen(this.port, () => {

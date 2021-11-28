@@ -1,8 +1,8 @@
 const { Router } = require('express');
-const { getData } = require('../controllers/menu.controller');
+const { getMenu, updateMenu } = require('../controllers/menu.controller');
 const router = Router();
 
-router.get('/', getData);
-
+router.get('/', getMenu);
+router.put('/:id', updateMenu)
 
 module.exports = router;
