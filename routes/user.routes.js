@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const router = Router();
-const { getUsers, addEmployed } = require('../controllers/users.controlles');
+const { getUsers, getUser, addEmployed, deleteUser } = require('../controllers/users.controlles');
 
-router.post('/', getUsers);
-router.post('/', addEmployed)
+router.get('/get', getUsers);
+router.post('/get', getUser);
+router.post('/post', addEmployed);
+router.delete('/delete/:uid', deleteUser);
 
 
 
