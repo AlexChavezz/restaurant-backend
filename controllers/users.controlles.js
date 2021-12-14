@@ -47,7 +47,8 @@ const addEmployed = (req, res) => {
     const { name, password, role } = req.body;
 
     const query = `INSERT INTO b2dywf3jqttxfzaxgbyo.Users ( userName, password, role ) VALUES ('${name}', '${password}', '${role}')`;
-    dbConnection.query(query, (error) => {
+    dbConnection.query(query, (error, results) => {
+        console.log(results)
         if (error) {
             console.log(error)
             return res.status(500).json({
@@ -56,6 +57,7 @@ const addEmployed = (req, res) => {
         } else {
             return res.json({
                 message: 'User has be added Succesfull',
+                uid: results.insertId
             });
         }
     });

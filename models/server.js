@@ -17,9 +17,6 @@ class Server {
         this.app.use(cors());
     }
     routes(){
-        this.app.use('/', ( req, res ) => {
-            res.sendFile(path.join(__dirname,'index.html'))
-        })
         this.app.use('/api/menu',require('../routes/menu.routes'));
         this.app.use('/api/users', require('../routes/user.routes'));
     }
