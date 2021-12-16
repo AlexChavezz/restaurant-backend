@@ -44,9 +44,9 @@ const getUser = (req, res) => {
 
 const addEmployed = (req, res) => {
 
-    const { name, password, role } = req.body;
+    const { userName, password, role } = req.body;
 
-    const query = `INSERT INTO b2dywf3jqttxfzaxgbyo.Users ( userName, password, role ) VALUES ('${name}', '${password}', '${role}')`;
+    const query = `INSERT INTO b2dywf3jqttxfzaxgbyo.Users ( userName, password, role ) VALUES ('${userName}', '${password}', '${role}')`;
     dbConnection.query(query, (error, results) => {
         console.log(results)
         if (error) {
